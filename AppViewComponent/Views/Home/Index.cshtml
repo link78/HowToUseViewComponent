@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Product>
+
+    <div class="panel-info">
+        <h3 class="text-center">@await Component.InvokeAsync("DensePopulation")</h3>
+    </div>
+
+<table class="table table-condensed table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Categoty</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Category</td>
+                <td>@p.Price.ToString("c")</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<button asp-action="Create" class="btn btn-primary text-center">Create</button>
+<a asp-action="Create" class="btn btn-primary">Create</a>
+
+

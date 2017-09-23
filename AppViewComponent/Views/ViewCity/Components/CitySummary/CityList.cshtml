@@ -1,0 +1,35 @@
+﻿@model IEnumerable<City>
+
+@*This table will be display at the home page at every page*@
+
+
+<table class="table table-bordered table-condensed table-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Population</th>
+            
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach(var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Country</td>
+                <td>@c.Population</td>
+                
+            </tr>
+
+        }
+        <tr>
+            <td>Total Population:</td>
+            <td></td>
+            <td>@Model.Sum(p=>p.Population).ToString("c")</td>
+        </tr>
+    </tbody>
+</table>
+
+<a asp-action="Create" asp-controller="ViewCity" class="btn btn-info">Create</a>
